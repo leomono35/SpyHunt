@@ -1,4 +1,21 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import * as React from 'react';
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import Home from "../Components/Home";
+import Rules from "../Components/Rules";
 
-const BottomTab = createBottomTabNavigator();
+
+const Stack = createStackNavigator()
+
+
+export default function Navigator() {
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Home'>
+        <Stack.Screen name='Home' component={Home} />
+        <Stack.Screen name='Rules' component={Rules} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}

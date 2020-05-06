@@ -1,8 +1,12 @@
 import React from 'react';
 import Rules from './Components/Rules'
+import Home from './Components/Home'
+import Navigator from './Navigation/TabNavigation'
 
-export default function App() {
-  return (
-    <Rules/>
-  );
+export default class App extends React.Component {
+  render() {
+    return (
+      <Navigator/>
+    )
+  }
 }
