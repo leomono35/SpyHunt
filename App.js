@@ -1,12 +1,19 @@
-import React from 'react';
-import Rules from './Components/Rules'
-import Home from './Components/Home'
-import Navigator from './Navigation/TabNavigation'
+import React, {Component} from 'react';
+import Home from './Components/Home';
 
-export default class App extends React.Component {
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
+
+export default class App extends Component {
   render() {
     return (
-      <Navigator/>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name = "Accueil" component={Home}/>
+        </Stack.Navigator>
+      </NavigationContainer>
     )
   }
 }
