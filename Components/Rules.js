@@ -19,7 +19,6 @@ class Rules extends React.Component{
         <View style = {styles.viewContainer}>
           {!this.state.showRule ? <Button title='Une première fois ? Apprends les règles !' onPress={this._showRules}/> : null}
           {this.state.showRule ? <Text style= {{ fontSize: 75, color: "#000", textAlign: 'center' }}> Hello Friends </Text> : null}
-          <Button title='Jouer' onPress={() => {}}/>
         </View>
     )
   }
