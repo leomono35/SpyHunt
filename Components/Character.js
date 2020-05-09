@@ -1,7 +1,6 @@
-{/*A ce stade, le if détecte que addCharacter contient un truc, mais pas moyen d l'afficher avec le texte audessus de flatlist ... et du coup je sais pas vraiment ce qu'il contient ... comme s'il était vide ? mais le if a réagi ? .... chiant ---'*/}
-
 import React from 'react'
 import { StyleSheet, View, TextInput, Button, Text, FlatList } from 'react-native'
+import Home from './Home'
 
 class Character extends React.Component{
 
@@ -9,7 +8,7 @@ class Character extends React.Component{
     super(props)
     this.addCharacter = ""
     this.state = {
-      Characters: ["bonjour","coucou","salut"]
+      Characters: []
     }
   }
 
@@ -19,9 +18,16 @@ class Character extends React.Component{
 
    _addCharacter() {
      if(this.addCharacter.length > 0) {
-        console.log("okay")
-        this.setState({Characters: [ ...this.state.Characters, this.state.addCharacter]})
+       this.setState({Characters: [ ...this.state.Characters, this.addCharacter ]})
+       this.textInput.clear()
+       this.addCharacter=""
      }
+   }
+
+   _launch() {
+     if(this.state.Characters.length > 1) {
+      this.props.navigation.navigate('Rôles', {Characters: this.state.Characters})
+      }
    }
 
   render() {
@@ -31,17 +37,23 @@ class Character extends React.Component{
           <Text>Entre le nom d'un joueur et valide pour l'ajouter !</Text>
           <Text>Clique sur un nom déjà ajouté pour le supprimer.</Text>
           <View style={{flex:0.05}}/>
-          <TextInput style={styles.textInputContainer} placeholder='Nom du joueur' onChangeText={(text) => this._charactersInputChanged(text)}/>
+          <TextInput
+            style={styles.textInputContainer}
+            placeholder='Nom du joueur'
+            onChangeText={(text) => this._charactersInputChanged(text)}
+            onSubmitEditing={() => this._addCharacter()}
+            ref={input => { this.textInput = input }}
+          />
           <View style={{flex:0.05}}/>
           <Button title='Ajouter' onPress={() => this._addCharacter()}/>
           <View style={{flex:0.05}}/>
-          <Text>{this.state.addCharacter}</Text>
+          <Button title='Démarrer' onPress={() => this._launch()}/>
+          <View style={{flex:0.05}}/>
           <FlatList
             data={this.state.Characters}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({item}) => <Text>{item}</Text>}
           />
-          {console.log("NOTokay")}
         </View>
       </View>
     )
