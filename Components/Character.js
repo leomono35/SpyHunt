@@ -35,7 +35,6 @@ class Character extends React.Component{
       <View style={{backgroundColor:'cyan', flex:1}}>
         <View style={styles.viewContainer}>
           <Text>Entre le nom d'un joueur et valide pour l'ajouter !</Text>
-          <Text>Clique sur un nom déjà ajouté pour le supprimer.</Text>
           <View style={{flex:0.05}}/>
           <TextInput
             style={styles.textInputContainer}
