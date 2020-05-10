@@ -70,10 +70,10 @@ class rolePresentation extends React.Component {
           {this.initialisation ? this._initialisation(Characters, tableOfPlaces.length) : null}
           {this.state.affichage && !this.isEspion ? <Text>Tu es un(e) {tableOfPlaces[this.lieu][this.nbrRandom]} dans un(e) {tableOfPlaces[this.lieu][tableOfPlaces[this.lieu].length - 1]}</Text> : null}
           <View style={{flex:0.05}}/>
-          {this.state.affichage && !this.isEspion ? <Button title='Afficher mon rôle' onPress={() => this._switchAffichage(0)}/> : null}
+          {this.state.affichage && !this.isEspion ? <Button title='Compris !' onPress={() => this._switchAffichage(0)}/> : null}
           {this.state.affichage && this.isEspion ? <Text>Tu es l'espion ! Sois discret !</Text> : null}
           <View style={{flex:0.05}}/>
-          {this.state.affichage && this.isEspion ? <Button title='Afficher mon rôle' onPress={() => this._switchAffichage(0)}/> : null}
+          {this.state.affichage && this.isEspion ? <Button title='Compris !' onPress={() => this._switchAffichage(0)}/> : null}
           {!this.state.affichage ? <Text>Passe le téléphone à {Characters[this.joueurActuel]}</Text> : null}
           <View style={{flex:0.05}}/>
           {!this.state.affichage ? <Button title='Afficher mon rôle' onPress={() => this._switchAffichage(tableOfPlaces[this.lieu].length - 1)}/> : null}
