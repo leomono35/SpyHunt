@@ -60,7 +60,8 @@ class rolePresentation extends React.Component {
     const policeStation= ["policier", "criminel", "victime", "commissariat"]
     const bank= ["banquier", "client", "voleur", "conseiller", "banque"]
     const circus= ["clown", "dresseur de fauve", "visiteur", "présentateur", "cirque"]
-    const tableOfPlaces= [supermarket, policeStation, bank, circus]
+    const beach= ["vendeur de plage", "baigneur", "pickpocket", "sauveteur", "plage"]
+    const tableOfPlaces= [supermarket, policeStation, bank, circus, plage]
 
     const {Characters}  = this.props.route.params
 
